@@ -15,8 +15,8 @@ class GenderChoiceButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        width: MediaQuery.sizeOf(context).width * 0.4,
-        padding: EdgeInsets.symmetric(vertical: 21),
+        width: MediaQuery.sizeOf(context).width * 0.38,
+        padding: EdgeInsets.symmetric(vertical: 20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: backgroundColor,

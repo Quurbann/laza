@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:laza/config/Theme/colors.dart';
+import 'package:laza/core/Theme/colors.dart';
+import 'package:laza/core/widgets/buttons/pr%C4%B1mary_button/primary_button.dart';
+import 'package:laza/core/widgets/buttons/toggle_button/toggle_button_provider.dart';
+import 'package:laza/features/auth/presentation/pages/sign_in.dart';
 import 'package:laza/features/auth/presentation/pages/sign_up.dart';
 import 'package:laza/features/auth/presentation/widgets/auth_login_items.dart';
+import 'package:provider/provider.dart';
 
 class GetStart extends StatelessWidget {
   const GetStart({super.key});
@@ -58,9 +62,9 @@ class GetStart extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => SignUp())),
+                          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => SignIn())),
                           child: Text(
-                            "Sign Up",
+                            "Sign In",
                             style: TextStyle(color: Colors.black, fontSize: 15),
                           ),
                         ),
@@ -73,17 +77,7 @@ class GetStart extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.only(top: 15, bottom: 40),
-        decoration: BoxDecoration(color: AppColors.primary),
-        child: TextButton(
-          onPressed: () {},
-          child: Text(
-            'Create an Account',
-            style: TextStyle(color: AppColors.white, fontSize: 15),
-          ),
-        ),
-      ),
+      bottomNavigationBar: PrimaryButton(text: 'Create an Account', onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ChangeNotifierProvider(create: (BuildContext context) => ToggleButtonProvider(), child: SignUp(),))),)
     );
   }
 }
