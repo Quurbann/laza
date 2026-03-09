@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:laza/core/widgets/buttons/pr%C4%B1mary_button/primary_button.dart';
 import 'package:laza/features/auth/presentation/pages/new_password.dart';
+import 'package:laza/features/auth/presentation/provider/new_password_provider.dart';
 import 'package:laza/features/auth/presentation/widgets/auth_verification_field.dart';
+import 'package:provider/provider.dart';
 
 class Verification extends StatelessWidget {
   const Verification({super.key});
@@ -68,7 +70,8 @@ class Verification extends StatelessWidget {
         text: 'Confirm Code',
         onTap: () => Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SetNewPassword()),
+          MaterialPageRoute(builder: (context) => ChangeNotifierProvider(create: (BuildContext context) => NewPasswordProvider(),
+          child: SetNewPassword())),
         ),
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:laza/core/Theme/colors.dart';
+import 'package:laza/core/theme/colors.dart';
 import 'package:laza/core/widgets/buttons/pr%C4%B1mary_button/primary_button.dart';
 import 'package:laza/core/widgets/buttons/toggle_button/toggle_button_provider.dart';
 import 'package:laza/features/auth/presentation/pages/sign_in.dart';

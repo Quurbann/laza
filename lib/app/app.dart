@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:laza/core/Theme/colors.dart';
+import 'package:laza/core/theme/colors.dart';
 import 'package:laza/features/initial_flow/presentation/pages/splash.dart';
 import 'package:laza/features/initial_flow/presentation/provider/splash_provider.dart';
 import 'package:provider/provider.dart';

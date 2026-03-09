@@ -1,11 +1,13 @@
+
 import 'package:flutter/material.dart';
 import 'package:laza/core/Theme/colors.dart';
 
 class AuthTextField extends StatelessWidget {
   final String text;
   final bool? obsecureText;
+  final ValueChanged<String>? onChanged;
 
-  const AuthTextField({super.key, required this.text, this.obsecureText});
+  const AuthTextField({super.key, required this.text, this.obsecureText, this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +18,7 @@ class AuthTextField extends StatelessWidget {
         TextField(
           cursorColor: AppColors.dark,
           obscureText: obsecureText ?? false,
+          onChanged: onChanged,
           decoration: InputDecoration(
             border: UnderlineInputBorder(
               borderSide: BorderSide(color: AppColors.muted),

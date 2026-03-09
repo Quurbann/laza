@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laza/core/Theme/colors.dart';
 
 Widget verificationField(int index) {
   return SizedBox(
@@ -10,7 +11,7 @@ Widget verificationField(int index) {
           maxLength: 1,
           textAlign: TextAlign.center,
           keyboardType: TextInputType.number,
-          decoration: InputDecoration(counterText: '', hintText: index.toString()),
+          decoration: InputDecoration(counterText: '', hintText: index.toString(), hintStyle: TextStyle(color: AppColors.muted.withValues(alpha: 0.5))),
           onChanged: (value) {
             if (value.length == 1) {
               FocusScope.of(context).nextFocus();

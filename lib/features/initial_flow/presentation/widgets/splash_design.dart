@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:laza/core/Theme/colors.dart';
+import 'package:laza/core/theme/colors.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({

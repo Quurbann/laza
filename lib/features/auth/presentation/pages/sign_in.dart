@@ -42,7 +42,7 @@ class SignIn extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: MediaQuery.sizeOf(context).height * 0.16,),
+                  SizedBox(height: MediaQuery.sizeOf(context).height * 0.16),
                   Column(
                     children: [
                       AuthTextField(text: "Username", obsecureText: false),
@@ -87,26 +87,97 @@ class SignIn extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: MediaQuery.sizeOf(context).height * 0.14,),
+                  SizedBox(height: MediaQuery.sizeOf(context).height * 0.14),
                   Padding(
                     padding: EdgeInsets.only(left: 14, right: 14),
-                    child: RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        style: TextStyle(color: AppColors.muted, fontSize: 14),
-                        children: [
-                          TextSpan(
-                            text:
-                                "By connecting your account confirm that you agree with our",
+                    child: GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (context) {
+                            return SingleChildScrollView(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    topRight: Radius.circular(20),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 25,
+                                    vertical: 60,
+                                  ),
+                                  
+                                  child: Center(
+                                    child: Text(
+                                      ''''Laza – İstifadə Şərtləri və Qaydalar
+Son yenilənmə: 9 Mart 2026
+
+"Laza" mobil tətbiqinə xoş gəlmisiniz! Bu tətbiqdən istifadə etməklə siz aşağıdakı şərtlərlə razılaşdığınızı təsdiq edirsiniz. Xahiş edirik, qaydaları diqqətlə oxuyun.
+
+1. Ümumi Müddəalar
+* "Laza" platforması istifadəçilərə müxtəlif məhsulları onlayn sifariş etmək imkanı verən e-ticarət xidmətidir.
+* Tətbiqdən istifadə etmək üçün istifadəçinin ən azı 18 yaşı olmalı və ya valideyn himayəsi ilə istifadə etməlidir.
+
+2. Hesabın Yaradılması və Təhlükəsizlik
+* Sifariş vermək üçün qeydiyyatdan keçmək tələb oluna bilər.
+* İstifadəçi öz hesab məlumatlarının məxfiliyinə və hesabı vasitəsilə həyata keçirilən bütün hərəkətlərə görə şəxsən məsuliyyət daşıyır.
+* Yanlış və ya saxta məlumat təqdim edildikdə, "Laza" hesabı bloklamaq hüququnu özündə saxlayır.
+
+3. Sifarişlər və Ödəniş
+* Tətbiqdə göstərilən qiymətlərə vergilər daxildir (əgər başqa hal qeyd edilməyibsə).
+* Ödənişlər onlayn (kart vasitəsilə) və ya çatdırılma zamanı nağd şəkildə həyata keçirilə bilər.
+
+4. Geri Qaytarma və Ləğv Etmə
+* İstehlakçı, qanunvericiliklə müəyyən edilmiş müddət ərzində qablaşdırması pozulmamış və istifadə edilməmiş məhsulu geri qaytara bilər.
+
+5. Məxfilik Siyasəti
+* Sizin şəxsi məlumatlarınız yalnız sifarişlərin icrası və xidmət keyfiyyətinin artırılması məqsədilə istifadə olunur.
+* Məlumatlar üçüncü tərəflərə (çatdırılma xidməti istisna olmaqla) satılmır və ötürülmür.
+
+6. Məsuliyyətin Məhdudlaşdırılması
+* "Laza" texniki nasazlıqlar və ya internet bağlantısı problemlərinə görə birbaşa məsuliyyət daşımır.
+* Tətbiq daxilindəki məlumatlarda texniki səhv olarsa, tətbiq rəhbərliyi sifarişi ləğv etmək hüququna malikdir.
+
+7. Əlaqə
+Bu şərtlərlə bağlı suallarınız yaranarsa, bizimlə əlaqə saxlaya bilərsiniz:
+Email: support@laza-app.com
+Ünvan: Bakı şəhəri, Azərbaycan.''',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: AppColors.surfaceDark1,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      child: RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          style: TextStyle(
+                            color: AppColors.muted,
+                            fontSize: 14,
                           ),
-                          TextSpan(
-                            text: "Term and Condition",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                          children: [
+                            TextSpan(
+                              text:
+                                  "By connecting your account confirm that you agree with our",
                             ),
-                          ),
-                        ],
+                            TextSpan(
+                              text: "Term and Condition",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
