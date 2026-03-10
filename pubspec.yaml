@@ -64,6 +64,8 @@ flutter:
   assets:
     - assets/images/svg/splash/
     - assets/images/svg/auth/
+    - assets/images/svg/home/appbar/
+    - assets/images/svg/home/body/
     - assets/images/png/onboarding/
     - assets/images/png/auth/
 

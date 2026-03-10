@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class OnboardingProvider extends ChangeNotifier{
-  bool gender = true;
+  String? gender ;
   
   void isMan(){
-    gender = true;
+    gender = 'man';
     notifyListeners();
   }
 
   void isWoman(){
-    gender = false;
+    gender = 'woman';
     notifyListeners();
   }
 }

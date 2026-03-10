@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laza/core/Theme/colors.dart';
 import 'package:laza/features/auth/presentation/pages/get_start.dart';
+import 'package:laza/features/home/presentation/pages/home.dart';
 import 'package:laza/features/initial_flow/presentation/provider/onboarding_provider.dart';
 import 'package:laza/features/initial_flow/presentation/widgets/initial_flow_buttons.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +36,7 @@ class Onboarding extends StatelessWidget {
                         constraints: BoxConstraints(
                           maxHeight: MediaQuery.sizeOf(context).height * 0.58,
                         ),
-                        child: provider.gender == true
+                        child: provider.gender == 'man'
                             ? Image.asset(
                                 'assets/images/png/onboarding/onboarding_man.png',
                               )
@@ -80,11 +81,6 @@ class Onboarding extends StatelessWidget {
                                     textColor: AppColors.muted,
                                     onPressed: () async{
                                       context.read<OnboardingProvider>().isMan();
-                                      await Future.delayed(Duration(milliseconds: 500));
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (_) => GetStart()),
-                                      );
                                     },
                                   ),
                                   GenderChoiceButton(
@@ -93,11 +89,6 @@ class Onboarding extends StatelessWidget {
                                     textColor: AppColors.white,
                                     onPressed: () async{
                                       context.read<OnboardingProvider>().isWoman();
-                                      await Future.delayed(Duration(milliseconds: 500));
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (_) => GetStart()),
-                                      );
                                     },
                                   ),
                                 ],
@@ -105,13 +96,10 @@ class Onboarding extends StatelessWidget {
                               SizedBox(height: 20),
                               TextButton(
                                 onPressed: () {
-                                  Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (_) => GetStart()),
-                                );
+                                  provider.gender != null ? Navigator.push(context, MaterialPageRoute(builder: (context) => GetStart())) : Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
                                 },
                                 child: Text(
-                                  "Skip",
+                                  provider.gender == null  ? "Skip" : "Next",
                                   style: TextStyle(fontSize: 17, color: AppColors.muted),
                                 ),
                               ),
