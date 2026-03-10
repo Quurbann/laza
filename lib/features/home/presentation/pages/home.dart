@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:laza/core/theme/colors.dart';
+import 'package:laza/features/home/presentation/provider/product_provider.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    Future.microtask(() => context.read<ProductProvider>().fetchProducts());
+    final provider = context.watch<ProductProvider>();
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -104,9 +110,72 @@ class Home extends StatelessWidget {
                       color: AppColors.muted,
                     ),
                   ),
-                ],
+                ],  
               ),
               SizedBox(height: 20),
+
+               Expanded(
+                child: provider.isLoading
+                    ? Center(child: CircularProgressIndicator())
+                    : GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 15,
+                          mainAxisSpacing: 15,
+                          childAspectRatio: 0.75,
+                        ),
+                        itemCount: provider.products.length,
+                        itemBuilder: (context, index) {
+                          final product = provider.products[index];
+                          return Container(
+                            decoration: BoxDecoration(
+                              color: Color(0xffF5F6FA),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(15),
+                                    ),
+                                    child: Image.network(
+                                      product.thumbnail,
+                                      fit: BoxFit.cover,
+                                      width: double.infinity,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        product.title,
+                                        style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                      SizedBox(height: 4),
+                                      Text(
+                                        '\$${product.price}',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w700,
+                                          color: AppColors.primary,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    )
             ],
           ),
         ),
