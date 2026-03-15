@@ -5,6 +5,7 @@ import 'package:laza/core/widgets/buttons/toggle_button/toggle_button.dart';
 import 'package:laza/core/widgets/buttons/toggle_button/toggle_button_provider.dart';
 import 'package:laza/features/auth/presentation/pages/forgot_password.dart';
 import 'package:laza/features/auth/presentation/widgets/auth_main_text_field.dart';
+import 'package:laza/features/home/presentation/pages/home.dart';
 import 'package:provider/provider.dart';
 
 class SignIn extends StatelessWidget {
@@ -187,7 +188,7 @@ Email: support@laza-app.com
           ),
         ),
       ),
-      bottomNavigationBar: PrimaryButton(text: 'Login'),
+      bottomNavigationBar: PrimaryButton(text: 'Login', onTap: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => Home())),),
     );
   }
 }

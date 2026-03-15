@@ -147,7 +147,7 @@ class Home extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                Padding(
+                                Padding(                                                            
                                   padding: const EdgeInsets.all(10),
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
