@@ -1,5 +1,5 @@
 // data/repositories/product_repository_impl.dart
-import '../../domain/entities/products_entity.dart';
+import '../../../../core/entities/products_entity.dart';
 import '../../domain/repository/products_repository.dart';
 import '../data_sources/remote_datasource.dart';
 import '../models/product_model.dart';

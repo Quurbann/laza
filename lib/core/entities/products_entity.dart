@@ -1,5 +1,3 @@
-// domain/entities/product_entity.dart
-
 class ProductEntity {
   final int id;
   final String title;
@@ -90,4 +88,4 @@ class MetaEntity {
     required this.barcode,
     required this.qrCode,
   });
-}
+} 

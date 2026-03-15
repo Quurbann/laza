@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../domain/entities/products_entity.dart';
+import '../../../../core/entities/products_entity.dart';
 import '../../domain/usecases/get_products_usecase.dart';
 
 class ProductProvider extends ChangeNotifier {

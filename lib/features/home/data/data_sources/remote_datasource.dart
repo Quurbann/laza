@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import '../models/product_model.dart';
 
 abstract class ProductRemoteDataSource {
-  Future<ProductModel> getProducts(); // List değil, direkt ProductModel
+  Future<ProductModel> getProducts();
 }
 
 class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
@@ -14,6 +14,6 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   @override
   Future<ProductModel> getProducts() async {
     final response = await dio.get('/products');
-    return ProductModel.fromJson(response.data); // direkt objeye çevir
+    return ProductModel.fromJson(response.data);
   }
 }

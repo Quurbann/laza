@@ -67,6 +67,7 @@ flutter:
     - assets/images/svg/auth/
     - assets/images/svg/home/appbar/
     - assets/images/svg/home/body/
+    - assets/images/svg/home/bottom_nav/
     - assets/images/png/onboarding/
     - assets/images/png/auth/
 

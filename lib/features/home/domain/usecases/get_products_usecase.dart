@@ -1,4 +1,4 @@
-import '../entities/products_entity.dart';
+import '../../../../core/entities/products_entity.dart';
 import '../repository/products_repository.dart';
 
 class GetProductsUseCase {

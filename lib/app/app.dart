@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:laza/core/api/api_service.dart';
 import 'package:laza/core/theme/colors.dart';
+import 'package:laza/features/cart/data/repository/cart_repository_impl.dart';
+import 'package:laza/features/cart/domain/usecases/add_to_cart_usecase.dart';
+import 'package:laza/features/cart/domain/usecases/get_cart_usecase.dart';
+import 'package:laza/features/cart/domain/usecases/remove_from_cart_usecase.dart';
+import 'package:laza/features/cart/presentation/provider/cart_provider.dart';
 import 'package:laza/features/home/data/data_sources/remote_datasource.dart';
 import 'package:laza/features/home/data/repository/products_repository_implementation.dart';
 import 'package:laza/features/home/domain/usecases/get_products_usecase.dart';
@@ -22,11 +27,17 @@ class Laza extends StatelessWidget {
 
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => SplashProvider()..initialize()),
+        ChangeNotifierProvider(create: (_) => ProductProvider(useCase)),
         ChangeNotifierProvider(
-          create: (_) => SplashProvider()..initialize(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => ProductProvider(useCase),
+          create: (_) {
+            final repo = CartRepositoryImpl();
+            return CartProvider(
+              addToCartUsecase: AddToCartUsecase(repo),
+              removeFromCartUsecase: RemoveFromCartUsecase(repo),
+              getCartUsecase: GetCartUsecase(repo),
+            );
+          },
         ),
       ],
       child: MaterialApp(
