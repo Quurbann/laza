@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:laza/core/theme/colors.dart';
-import 'package:laza/features/cart/presentation/cart.dart';
+import 'package:laza/features/cart/presentation/pages/cart.dart';
 import 'package:laza/features/home/presentation/pages/home_product.dart';
 import 'package:laza/features/home/presentation/provider/product_provider.dart';
 import 'package:provider/provider.dart';

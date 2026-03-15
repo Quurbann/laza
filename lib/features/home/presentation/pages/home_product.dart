@@ -304,11 +304,6 @@ class HomeProduct extends StatelessWidget {
           context.read<CartProvider>().addToCart(
             CartItemEntity(product: productInfo, quantity: 1),
           );
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text('${productInfo.title} sepete eklendi'),
-            ),
-          );
         },
       ),
     );

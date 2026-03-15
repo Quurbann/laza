@@ -35,4 +35,31 @@ class CartProvider extends ChangeNotifier {
     _items.remove(item);
     notifyListeners();
   }
+
+
+  void increaseQuantity(CartItemEntity item) {
+  final index = _items.indexOf(item);
+  if (index != -1) {
+    _items[index] = CartItemEntity(
+      product: item.product,
+      quantity: item.quantity + 1,
+    );
+    notifyListeners();
+  }
+}
+
+void decreaseQuantity(CartItemEntity item) {
+  final index = _items.indexOf(item);
+  if (index != -1) {
+    if (item.quantity > 1) {
+      _items[index] = CartItemEntity(
+        product: item.product,
+        quantity: item.quantity - 1,
+      );
+    } else {
+      _items.removeAt(index);
+    }
+    notifyListeners();
+  }
+}
 }
